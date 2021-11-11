@@ -12,5 +12,20 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array/>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>workout-processing</string>
+	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Needs this data to work properly</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Needs to update health data to work properly</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>accelerometer</string>
+		<string>gyroscope</string>
+	</array>
 </dict>
 </plist>
