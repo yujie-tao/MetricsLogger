@@ -17,32 +17,15 @@ struct StartView: View {
     var body: some View {
         VStack {
             NavigationLink(
-                HKWorkoutActivityType.other.name,
+                HKWorkoutActivityType.walking.name,
                 destination: SessionPagingView(),
-                tag: HKWorkoutActivityType.other,
+                tag: HKWorkoutActivityType.walking,
                 selection: $workoutManager.selectedWorkout
-            )
-            NavigationLink(
-                "WS Test",
-                destination: WebSocketTestView()
-            )
-            NavigationLink(
-                "CoreMotion",
-                destination: CoreMotionView()
             )
         }
         .onAppear() {
             workoutManager.requestAuthorization()
         }
-//        List(workoutTypes) { workoutType in
-//            NavigationLink(workoutType.name, destination: SessionPagingView(), tag: workoutType, selection: $workoutManager.selectedWorkout)
-//                .padding(EdgeInsets(top: 15, leading: 5, bottom: 15, trailing: 5))
-//        }
-//        .listStyle(.carousel)
-//        .navigationBarTitle("Workouts")
-//        .onAppear {
-//            workoutManager.requestAuthorization()
-//        }
     }
 }
 

@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct Code_Along_My_WorkoutApp: App {
-    private let wsManager: WebSocketManager = WebSocketManager("ws://192.168.178.96:8080")
     @StateObject private var workoutManager: WorkoutManager = WorkoutManager()
     
     @SceneBuilder var body: some Scene {
@@ -22,8 +21,7 @@ struct Code_Along_My_WorkoutApp: App {
             }
             .environmentObject(workoutManager)
             .onAppear() {
-                wsManager.connect()
-                workoutManager.wsManager = wsManager
+                workoutManager.wsManager = WebSocketManager("ws://192.168.178.96:3210/watch")
             }
         }
 

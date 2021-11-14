@@ -15,24 +15,29 @@ public class InfluxInlineMetricBuilder {
     public private(set) var fields: [String : String] = [:]
     public private(set) var timestamp: Date?
     
-    public func withMeasurement(measurement: String) {
+    public func withMeasurement(_ measurement: String) -> InfluxInlineMetricBuilder {
         self.measurement = measurement
+        return self
     }
     
-    public func addTag(_ key: String, _ value: String) {
+    public func addTag(_ key: String, _ value: String) -> InfluxInlineMetricBuilder {
         self.tags[key] = value
+        return self
     }
     
-    public func addField(_ key: String, _ value: String) {
+    public func addField(_ key: String, _ value: String) -> InfluxInlineMetricBuilder {
         self.fields[key] = value
+        return self
     }
     
-    public func withTimestamp(_ timestamp: Date) {
+    public func withTimestamp(_ timestamp: Date) -> InfluxInlineMetricBuilder {
         self.timestamp = timestamp
+        return self
     }
     
-    public func withTimestamp() {
+    public func withTimestamp() -> InfluxInlineMetricBuilder {
         self.timestamp = Date.now
+        return self
     }
     
     public func build() -> InfluxInlineMetric {

@@ -7,12 +7,16 @@
 
 import Foundation
 import HealthKit
+import WatchKit
 
 // Sekunde 40 weiter machen
 // https://developer.apple.com/videos/play/wwdc2021/10009/
 
 class WorkoutManager: NSObject, ObservableObject {
+    let UUID: String = WKInterfaceDevice.current().identifierForVendor?.uuidString ?? "no-uuid"
+    
     var wsManager: WebSocketManager?
+    var motionManager: MotionManager = MotionManager()
     
     var selectedWorkout: HKWorkoutActivityType? {
         didSet {
@@ -57,6 +61,7 @@ class WorkoutManager: NSObject, ObservableObject {
         // start the workout session and begin data collecion
         let startDate = Date()
         session?.startActivity(with: startDate)
+        self.motionManager.collectData(webSocketManager: self.wsManager!)
         builder?.beginCollection(withStart: startDate) { success, error in
             // workout has started
         }
@@ -130,18 +135,48 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 
-//                let message = Message(value: "\(self.heartRate)")
-//                self.wsManager?.sendMessage(msg: message)
+                let iimHeartRate = InfluxInlineMetricBuilder()
+                    .withMeasurement("heart_rate")
+                    .addTag("uuid", self.UUID)
+                    .addField("rate", "\(self.heartRate)")
+                    .build()
+                let iimHeartRateAverage = InfluxInlineMetricBuilder()
+                    .withMeasurement("avg_heart_rate")
+                    .addTag("uuid", self.UUID)
+                    .addField("rate", "\(self.averageHeartRate)")
+                    .build()
+                self.wsManager?.sendMessage(msg: iimHeartRate)
+                self.wsManager?.sendMessage(msg: iimHeartRateAverage)
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
                 self.activeEnergy = statistics.sumQuantity()?.doubleValue(for: energyUnit) ?? 0
+                
+                let iimActiveEnergy = InfluxInlineMetricBuilder()
+                    .withMeasurement("avtive_energy")
+                    .addTag("uuid", self.UUID)
+                    .addField("energy", "\(self.activeEnergy)")
+                    .build()
+                self.wsManager?.sendMessage(msg: iimActiveEnergy)
             case HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning):
                 let meterUnit = HKUnit.meter()
                 self.distance = statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0
+                
+                let iimDistance = InfluxInlineMetricBuilder()
+                    .withMeasurement("distance")
+                    .addTag("uuid", self.UUID)
+                    .addField("meters", "\(self.distance)")
+                    .build()
+                self.wsManager?.sendMessage(msg: iimDistance)
             case HKQuantityType.quantityType(forIdentifier: .stepCount):
                 let stepCountUnit = HKUnit.count()
                 self.stepCount = statistics.sumQuantity()?.doubleValue(for: stepCountUnit) ?? 0
                 
+                let iimStepCount = InfluxInlineMetricBuilder()
+                    .withMeasurement("step_count")
+                    .addTag("uuid", self.UUID)
+                    .addField("steps", "\(self.stepCount)")
+                    .build()
+                self.wsManager?.sendMessage(msg: iimStepCount)
             default:
                 return
             }
@@ -176,6 +211,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
             builder?.endCollection(withEnd: date) {success, error in
                 self.builder?.finishWorkout() {workout, error in
                     DispatchQueue.main.async {
+                        self.motionManager.stopCollectData()
                         self.workout = workout
                     }
                 }

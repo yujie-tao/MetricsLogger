@@ -28,12 +28,11 @@
 		D71E9184273328DF008903FD /* ActivityRingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9183273328DF008903FD /* ActivityRingsView.swift */; };
 		D71E918627332C20008903FD /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E918527332C20008903FD /* WorkoutManager.swift */; };
 		D71E918A27333F91008903FD /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71E918927333F91008903FD /* HealthKit.framework */; };
-		D71E918C2735B8BC008903FD /* WebSocketTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E918B2735B8BC008903FD /* WebSocketTestView.swift */; };
 		D73B7A802735C1C900804048 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B7A7F2735C1C900804048 /* Message.swift */; };
 		D73B7A822735C32200804048 /* WSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B7A812735C32200804048 /* WSManager.swift */; };
 		D76C6D3B273DBFAA0083A4B8 /* InfluxInlineMetricBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C6D3A273DBFAA0083A4B8 /* InfluxInlineMetricBuilder.swift */; };
 		D76C6D3D273DC3E60083A4B8 /* InfluxInlineMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C6D3C273DC3E60083A4B8 /* InfluxInlineMetric.swift */; };
-		D79AB169273A8D61004E1998 /* CoreMotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79AB168273A8D61004E1998 /* CoreMotionView.swift */; };
+		D76C6D40273DE88F0083A4B8 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C6D3F273DE88F0083A4B8 /* MotionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,12 +119,11 @@
 		D71E918527332C20008903FD /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D71E918727333F91008903FD /* Code Along My Workout WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Code Along My Workout WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D71E918927333F91008903FD /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		D71E918B2735B8BC008903FD /* WebSocketTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTestView.swift; sourceTree = "<group>"; };
 		D73B7A7F2735C1C900804048 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D73B7A812735C32200804048 /* WSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSManager.swift; sourceTree = "<group>"; };
 		D76C6D3A273DBFAA0083A4B8 /* InfluxInlineMetricBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxInlineMetricBuilder.swift; sourceTree = "<group>"; };
 		D76C6D3C273DC3E60083A4B8 /* InfluxInlineMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxInlineMetric.swift; sourceTree = "<group>"; };
-		D79AB168273A8D61004E1998 /* CoreMotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionView.swift; sourceTree = "<group>"; };
+		D76C6D3F273DE88F0083A4B8 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,12 +187,11 @@
 		D71E913C273319E6008903FD /* Code Along My Workout WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D76C6D3E273DE87B0083A4B8 /* motion */,
 				D76C6D39273DBE490083A4B8 /* InfluxInline */,
 				D71E918727333F91008903FD /* Code Along My Workout WatchKit Extension.entitlements */,
 				D71E913D273319E6008903FD /* Code_Along_My_WorkoutApp.swift */,
-				D79AB168273A8D61004E1998 /* CoreMotionView.swift */,
 				D71E913F273319E6008903FD /* StartView.swift */,
-				D71E918B2735B8BC008903FD /* WebSocketTestView.swift */,
 				D73B7A7F2735C1C900804048 /* Message.swift */,
 				D73B7A812735C32200804048 /* WSManager.swift */,
 				D71E91812733259E008903FD /* SummaryView.swift */,
@@ -255,6 +252,14 @@
 				D76C6D3C273DC3E60083A4B8 /* InfluxInlineMetric.swift */,
 			);
 			path = InfluxInline;
+			sourceTree = "<group>";
+		};
+		D76C6D3E273DE87B0083A4B8 /* motion */ = {
+			isa = PBXGroup;
+			children = (
+				D76C6D3F273DE88F0083A4B8 /* MotionManager.swift */,
+			);
+			path = motion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,12 +457,11 @@
 				D71E918627332C20008903FD /* WorkoutManager.swift in Sources */,
 				D71E9140273319E6008903FD /* StartView.swift in Sources */,
 				D71E9146273319E6008903FD /* ComplicationController.swift in Sources */,
-				D71E918C2735B8BC008903FD /* WebSocketTestView.swift in Sources */,
-				D79AB169273A8D61004E1998 /* CoreMotionView.swift in Sources */,
 				D76C6D3D273DC3E60083A4B8 /* InfluxInlineMetric.swift in Sources */,
 				D71E913E273319E6008903FD /* Code_Along_My_WorkoutApp.swift in Sources */,
 				D73B7A822735C32200804048 /* WSManager.swift in Sources */,
 				D71E91822733259E008903FD /* SummaryView.swift in Sources */,
+				D76C6D40273DE88F0083A4B8 /* MotionManager.swift in Sources */,
 				D71E9144273319E6008903FD /* NotificationView.swift in Sources */,
 				D76C6D3B273DBFAA0083A4B8 /* InfluxInlineMetricBuilder.swift in Sources */,
 				D71E917827331D2E008903FD /* SessionPagingView.swift in Sources */,

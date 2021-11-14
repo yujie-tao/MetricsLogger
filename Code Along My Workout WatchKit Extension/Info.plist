@@ -27,5 +27,14 @@
 		<string>accelerometer</string>
 		<string>gyroscope</string>
 	</array>
+	<key>NSMotionUsageDescription</key>
+	<string>This App will track your motion for furhter analysis</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
