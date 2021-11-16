@@ -9,20 +9,21 @@ import SwiftUI
 
 @main
 struct Code_Along_My_WorkoutApp: App {
-    @StateObject private var workoutManager: WorkoutManager = WorkoutManager()
+    private var setupController: SetupController = SetupController()
+    private var workoutManager: WorkoutManager
+    
+    init() {
+        workoutManager = WorkoutManager(setupController: self.setupController)
+    }
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                StartView()
-            }
-            .sheet(isPresented: $workoutManager.showingSummaryView) {
-                SummaryView()
+                SelectMetricsView()
             }
             .environmentObject(workoutManager)
-            .onAppear() {
-                workoutManager.wsManager = WebSocketManager("ws://192.168.178.96:3210/watch")
-            }
+            .environmentObject(setupController)
+            .environmentObject(WebSocketManager.shared)
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")

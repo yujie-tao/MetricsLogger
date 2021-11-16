@@ -8,6 +8,7 @@
 import Foundation
 import CoreMotion
 import WatchKit
+import SwiftUI
 
 class MotionManager {
     
@@ -17,35 +18,60 @@ class MotionManager {
     private let baseMetricBuilder: InfluxInlineMetricBuilder!
     
     var timer: Timer?
-    var webSocketManager: WebSocketManager?
+    let webSocketManager: WebSocketManager = WebSocketManager.shared
+    let setupController: SetupController
     
-    init() {
+    init(setupController: SetupController) {
+        self.setupController = setupController
         baseMetricBuilder = InfluxInlineMetricBuilder().addTag("uuid", self.UUID)
     }
     
-    func collectData(webSocketManager: WebSocketManager) {
-        self.webSocketManager = webSocketManager
-        let interval = 1.0 / 10.0
+    func collectData() {
+        let interval = 1 / setupController.hz
         
-        if motion.isAccelerometerAvailable {
+        var handlerFunctions: [(() -> Void)] = []
+        
+        if motion.isAccelerometerAvailable && setupController.metrics.rawAcceleration {
             motion.accelerometerUpdateInterval = interval
             motion.startAccelerometerUpdates()
+            handlerFunctions.append(self.handleAccelerationData)
         }
         
-        if motion.isGyroAvailable {
-            motion.gyroUpdateInterval = interval
-            motion.startGyroUpdates()
-        }
+        
         
         if motion.isDeviceMotionAvailable {
             motion.deviceMotionUpdateInterval = interval
             motion.startDeviceMotionUpdates(using: .xMagneticNorthZVertical)
+            
+            if setupController.metrics.gyroscope {
+                handlerFunctions.append(self.handleDeviceMotionGyroscope)
+            }
+            
+            if setupController.metrics.magenticField {
+                handlerFunctions.append(self.handleMagneticField)
+            }
+            
+            if setupController.metrics.acceleration {
+                handlerFunctions.append(self.handleDeviceMotionAcceleration)
+            }
+            
+            if setupController.metrics.gravity {
+                handlerFunctions.append(self.handleGravity)
+            }
+            
+            if setupController.metrics.rotationRate {
+                handlerFunctions.append(self.handleRotationRate)
+            }
+            
+            if setupController.metrics.attitude {
+                print("Collect Attitude")
+                handlerFunctions.append(self.handleAttitude)
+            }
+            
         }
         
         timer = Timer(fire: Date(), interval: interval, repeats: true) { timer in
-            self.handleAccelerationData()
-            self.handleDeviceMotionGyroscope()
-            self.handleDeviceMotionAcceleration()
+            handlerFunctions.forEach { $0() }
         }
         
         RunLoop.current.add(timer!, forMode: .default)
@@ -64,7 +90,7 @@ class MotionManager {
                 .addField("z", "\(data.acceleration.z)")
                 .build()
             
-            self.webSocketManager?.sendMessage(msg: iimAccData)
+            self.webSocketManager.sendMessage(msg: iimAccData)
         }
     }
     
@@ -83,15 +109,14 @@ class MotionManager {
                 .addField("yaw", "\(data.yaw)")
                 .addField("pitch", "\(data.pitch)")
                 .addField("roll", "\(data.roll)")
-                .addField("rotation_matrix", "\(data.rotationMatrix)")
                 .build()
             let iimQuaternion = baseMetricBuilder
                 .withMeasurement("attitude_quaternion")
                 .addTag("unbiased", "true")
                 .addField("x", "\(data.quaternion.x)")
-                .addField("x", "\(data.quaternion.y)")
-                .addField("x", "\(data.quaternion.z)")
-                .addField("x", "\(data.quaternion.w)")
+                .addField("y", "\(data.quaternion.y)")
+                .addField("z", "\(data.quaternion.z)")
+                .addField("w", "\(data.quaternion.w)")
                 .build()
             let iimRotationMatrix = baseMetricBuilder
                 .withMeasurement("attitude_quaternion")
@@ -106,9 +131,9 @@ class MotionManager {
                 .addField("32", "\(data.rotationMatrix.m32)")
                 .addField("33", "\(data.rotationMatrix.m33)")
                 .build()
-            webSocketManager?.sendMessage(msg: iimAttitude)
-            webSocketManager?.sendMessage(msg: iimQuaternion)
-            webSocketManager?.sendMessage(msg: iimRotationMatrix)
+            webSocketManager.sendMessage(msg: iimAttitude)
+            webSocketManager.sendMessage(msg: iimQuaternion)
+            webSocketManager.sendMessage(msg: iimRotationMatrix)
         }
     }
     
@@ -122,7 +147,7 @@ class MotionManager {
                 .addField("y", "\(data.y)")
                 .addField("z", "\(data.z)")
                 .build()
-            webSocketManager?.sendMessage(msg: iimRotationRate)
+            webSocketManager.sendMessage(msg: iimRotationRate)
         }
     }
     
@@ -136,7 +161,7 @@ class MotionManager {
                 .addField("y", "\(data.y)")
                 .addField("z", "\(data.z)")
                 .build()
-            webSocketManager?.sendMessage(msg: iimGravity)
+            webSocketManager.sendMessage(msg: iimGravity)
         }
     }
     
@@ -152,7 +177,7 @@ class MotionManager {
                 .addField("z", "\(data.userAcceleration.z)")
                 .build()
             
-            self.webSocketManager?.sendMessage(msg: iimAccData)
+            self.webSocketManager.sendMessage(msg: iimAccData)
         }
     }
     
@@ -167,7 +192,7 @@ class MotionManager {
                 .addField("y", "\(data.field.y)")
                 .addField("z", "\(data.field.z)")
                 .build()
-            webSocketManager?.sendMessage(msg: iimMagenticField)
+            webSocketManager.sendMessage(msg: iimMagenticField)
         }
     }
     
@@ -179,7 +204,7 @@ class MotionManager {
                 .addTag("unbiased", "true")
                 .addField("degree", "\(data)")
                 .build()
-            webSocketManager?.sendMessage(msg: iimHeading)
+            webSocketManager.sendMessage(msg: iimHeading)
         }
     }
     
@@ -194,7 +219,7 @@ class MotionManager {
                 .addField("y", "\(data.rotationRate.y)")
                 .addField("z", "\(data.rotationRate.z)")
                 .build()
-            webSocketManager?.sendMessage(msg: iimAcceleration)
+            webSocketManager.sendMessage(msg: iimAcceleration)
         }
     }
     

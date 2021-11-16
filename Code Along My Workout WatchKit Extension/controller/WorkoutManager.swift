@@ -15,8 +15,14 @@ import WatchKit
 class WorkoutManager: NSObject, ObservableObject {
     let UUID: String = WKInterfaceDevice.current().identifierForVendor?.uuidString ?? "no-uuid"
     
-    var wsManager: WebSocketManager?
-    var motionManager: MotionManager = MotionManager()
+    let setupController: SetupController
+    let wsManager: WebSocketManager = WebSocketManager.shared
+    var motionManager: MotionManager
+    
+    init(setupController: SetupController) {
+        self.setupController = setupController
+        self.motionManager = MotionManager(setupController: setupController)
+    }
     
     var selectedWorkout: HKWorkoutActivityType? {
         didSet {
@@ -61,7 +67,8 @@ class WorkoutManager: NSObject, ObservableObject {
         // start the workout session and begin data collecion
         let startDate = Date()
         session?.startActivity(with: startDate)
-        self.motionManager.collectData(webSocketManager: self.wsManager!)
+        wsManager.connect()
+        self.motionManager.collectData()
         builder?.beginCollection(withStart: startDate) { success, error in
             // workout has started
         }
@@ -145,8 +152,8 @@ class WorkoutManager: NSObject, ObservableObject {
                     .addTag("uuid", self.UUID)
                     .addField("rate", "\(self.averageHeartRate)")
                     .build()
-                self.wsManager?.sendMessage(msg: iimHeartRate)
-                self.wsManager?.sendMessage(msg: iimHeartRateAverage)
+                self.wsManager.sendMessage(msg: iimHeartRate)
+                self.wsManager.sendMessage(msg: iimHeartRateAverage)
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
                 self.activeEnergy = statistics.sumQuantity()?.doubleValue(for: energyUnit) ?? 0
@@ -156,7 +163,7 @@ class WorkoutManager: NSObject, ObservableObject {
                     .addTag("uuid", self.UUID)
                     .addField("energy", "\(self.activeEnergy)")
                     .build()
-                self.wsManager?.sendMessage(msg: iimActiveEnergy)
+                self.wsManager.sendMessage(msg: iimActiveEnergy)
             case HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning):
                 let meterUnit = HKUnit.meter()
                 self.distance = statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0
@@ -166,7 +173,7 @@ class WorkoutManager: NSObject, ObservableObject {
                     .addTag("uuid", self.UUID)
                     .addField("meters", "\(self.distance)")
                     .build()
-                self.wsManager?.sendMessage(msg: iimDistance)
+                self.wsManager.sendMessage(msg: iimDistance)
             case HKQuantityType.quantityType(forIdentifier: .stepCount):
                 let stepCountUnit = HKUnit.count()
                 self.stepCount = statistics.sumQuantity()?.doubleValue(for: stepCountUnit) ?? 0
@@ -176,7 +183,7 @@ class WorkoutManager: NSObject, ObservableObject {
                     .addTag("uuid", self.UUID)
                     .addField("steps", "\(self.stepCount)")
                     .build()
-                self.wsManager?.sendMessage(msg: iimStepCount)
+                self.wsManager.sendMessage(msg: iimStepCount)
             default:
                 return
             }

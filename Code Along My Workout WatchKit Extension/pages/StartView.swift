@@ -17,7 +17,7 @@ struct StartView: View {
     var body: some View {
         VStack {
             NavigationLink(
-                HKWorkoutActivityType.walking.name,
+                "Walk",
                 destination: SessionPagingView(),
                 tag: HKWorkoutActivityType.walking,
                 selection: $workoutManager.selectedWorkout
@@ -32,24 +32,5 @@ struct StartView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         StartView()
-    }
-}
-
-extension HKWorkoutActivityType: Identifiable {
-    public var id: UInt {
-        rawValue
-    }
-    
-    var name: String {
-        switch self {
-        case .running:
-            return "Running";
-        case .cycling:
-            return "Cycling";
-        case .walking:
-            return "Walking";
-        default:
-            return "Unkown Workouttype"
-        }
     }
 }
