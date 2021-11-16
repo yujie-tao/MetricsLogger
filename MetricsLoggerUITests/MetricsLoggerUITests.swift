@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Code_Along_My_WorkoutUITests: XCTestCase {
+class MetricsLoggerUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Code_Along_My_WorkoutApp: App {
+struct MetricsLoggerApp: App {
     private var setupController: SetupController = SetupController()
     private var workoutManager: WorkoutManager
     

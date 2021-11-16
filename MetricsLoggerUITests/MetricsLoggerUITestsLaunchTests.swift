@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Code_Along_My_WorkoutUITestsLaunchTests: XCTestCase {
+class MetricsLoggerUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D71E912E273319E5008903FD /* Code Along My Workout WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D71E912D273319E5008903FD /* Code Along My Workout WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D71E912E273319E5008903FD /* MetricsLogger WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D71E912D273319E5008903FD /* MetricsLogger WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D71E9133273319E5008903FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71E9132273319E5008903FD /* Assets.xcassets */; };
-		D71E9139273319E6008903FD /* Code Along My Workout WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D71E9138273319E6008903FD /* Code Along My Workout WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D71E913E273319E6008903FD /* Code_Along_My_WorkoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E913D273319E6008903FD /* Code_Along_My_WorkoutApp.swift */; };
+		D71E9139273319E6008903FD /* MetricsLogger WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D71E9138273319E6008903FD /* MetricsLogger WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D71E913E273319E6008903FD /* MetricsLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E913D273319E6008903FD /* MetricsLogger.swift */; };
 		D71E9140273319E6008903FD /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E913F273319E6008903FD /* StartView.swift */; };
 		D71E9142273319E6008903FD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9141273319E6008903FD /* NotificationController.swift */; };
 		D71E9144273319E6008903FD /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9143273319E6008903FD /* NotificationView.swift */; };
 		D71E9146273319E6008903FD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9145273319E6008903FD /* ComplicationController.swift */; };
 		D71E9148273319E6008903FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71E9147273319E6008903FD /* Assets.xcassets */; };
 		D71E914B273319E6008903FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71E914A273319E6008903FD /* Preview Assets.xcassets */; };
-		D71E9157273319E6008903FD /* Code_Along_My_WorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9156273319E6008903FD /* Code_Along_My_WorkoutTests.swift */; };
-		D71E9161273319E6008903FD /* Code_Along_My_WorkoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9160273319E6008903FD /* Code_Along_My_WorkoutUITests.swift */; };
-		D71E9163273319E6008903FD /* Code_Along_My_WorkoutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9162273319E6008903FD /* Code_Along_My_WorkoutUITestsLaunchTests.swift */; };
+		D71E9157273319E6008903FD /* MetricsLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9156273319E6008903FD /* MetricsLoggerTests.swift */; };
+		D71E9161273319E6008903FD /* MetricsLoggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9160273319E6008903FD /* MetricsLoggerUITests.swift */; };
+		D71E9163273319E6008903FD /* MetricsLoggerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E9162273319E6008903FD /* MetricsLoggerUITestsLaunchTests.swift */; };
 		D71E917827331D2E008903FD /* SessionPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E917727331D2E008903FD /* SessionPagingView.swift */; };
 		D71E917A27331E31008903FD /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E917927331E31008903FD /* MetricsView.swift */; };
 		D71E917C273321CF008903FD /* ElapsedTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E917B273321CF008903FD /* ElapsedTimeView.swift */; };
@@ -76,7 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D71E9139273319E6008903FD /* Code Along My Workout WatchKit Extension.appex in Embed App Extensions */,
+				D71E9139273319E6008903FD /* MetricsLogger WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +87,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				D71E912E273319E5008903FD /* Code Along My Workout WatchKit App.app in Embed Watch Content */,
+				D71E912E273319E5008903FD /* MetricsLogger WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,11 +95,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D71E9129273319E5008903FD /* Code Along My Workout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Along My Workout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D71E912D273319E5008903FD /* Code Along My Workout WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Along My Workout WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D71E9129273319E5008903FD /* MetricsLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetricsLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D71E912D273319E5008903FD /* MetricsLogger WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MetricsLogger WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71E9132273319E5008903FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D71E9138273319E6008903FD /* Code Along My Workout WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Code Along My Workout WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D71E913D273319E6008903FD /* Code_Along_My_WorkoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code_Along_My_WorkoutApp.swift; sourceTree = "<group>"; };
+		D71E9138273319E6008903FD /* MetricsLogger WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MetricsLogger WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D71E913D273319E6008903FD /* MetricsLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsLogger.swift; sourceTree = "<group>"; };
 		D71E913F273319E6008903FD /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		D71E9141273319E6008903FD /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		D71E9143273319E6008903FD /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -108,17 +108,17 @@
 		D71E914A273319E6008903FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D71E914C273319E6008903FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D71E914D273319E6008903FD /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		D71E9152273319E6008903FD /* Code Along My WorkoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Code Along My WorkoutTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D71E9156273319E6008903FD /* Code_Along_My_WorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code_Along_My_WorkoutTests.swift; sourceTree = "<group>"; };
-		D71E915C273319E6008903FD /* Code Along My WorkoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Code Along My WorkoutUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D71E9160273319E6008903FD /* Code_Along_My_WorkoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code_Along_My_WorkoutUITests.swift; sourceTree = "<group>"; };
-		D71E9162273319E6008903FD /* Code_Along_My_WorkoutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code_Along_My_WorkoutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D71E9152273319E6008903FD /* MetricsLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetricsLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D71E9156273319E6008903FD /* MetricsLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsLoggerTests.swift; sourceTree = "<group>"; };
+		D71E915C273319E6008903FD /* MetricsLoggerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetricsLoggerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D71E9160273319E6008903FD /* MetricsLoggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsLoggerUITests.swift; sourceTree = "<group>"; };
+		D71E9162273319E6008903FD /* MetricsLoggerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsLoggerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D71E917727331D2E008903FD /* SessionPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPagingView.swift; sourceTree = "<group>"; };
 		D71E917927331E31008903FD /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
 		D71E917B273321CF008903FD /* ElapsedTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTimeView.swift; sourceTree = "<group>"; };
 		D71E917D27332417008903FD /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		D71E918527332C20008903FD /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
-		D71E918727333F91008903FD /* Code Along My Workout WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Code Along My Workout WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		D71E918727333F91008903FD /* MetricsLogger WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MetricsLogger WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D71E918927333F91008903FD /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D73B7A812735C32200804048 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		D76C6D3A273DBFAA0083A4B8 /* InfluxInlineMetricBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxInlineMetricBuilder.swift; sourceTree = "<group>"; };
@@ -161,10 +161,10 @@
 		D71E9122273319E5008903FD = {
 			isa = PBXGroup;
 			children = (
-				D71E9131273319E5008903FD /* Code Along My Workout WatchKit App */,
-				D71E913C273319E6008903FD /* Code Along My Workout WatchKit Extension */,
-				D71E9155273319E6008903FD /* Code Along My WorkoutTests */,
-				D71E915F273319E6008903FD /* Code Along My WorkoutUITests */,
+				D71E9131273319E5008903FD /* MetricsLogger WatchKit App */,
+				D71E913C273319E6008903FD /* MetricsLogger WatchKit Extension */,
+				D71E9155273319E6008903FD /* MetricsLoggerTests */,
+				D71E915F273319E6008903FD /* MetricsLoggerUITests */,
 				D71E912A273319E5008903FD /* Products */,
 				D71E918827333F91008903FD /* Frameworks */,
 			);
@@ -173,31 +173,31 @@
 		D71E912A273319E5008903FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D71E9129273319E5008903FD /* Code Along My Workout.app */,
-				D71E912D273319E5008903FD /* Code Along My Workout WatchKit App.app */,
-				D71E9138273319E6008903FD /* Code Along My Workout WatchKit Extension.appex */,
-				D71E9152273319E6008903FD /* Code Along My WorkoutTests.xctest */,
-				D71E915C273319E6008903FD /* Code Along My WorkoutUITests.xctest */,
+				D71E9129273319E5008903FD /* MetricsLogger.app */,
+				D71E912D273319E5008903FD /* MetricsLogger WatchKit App.app */,
+				D71E9138273319E6008903FD /* MetricsLogger WatchKit Extension.appex */,
+				D71E9152273319E6008903FD /* MetricsLoggerTests.xctest */,
+				D71E915C273319E6008903FD /* MetricsLoggerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D71E9131273319E5008903FD /* Code Along My Workout WatchKit App */ = {
+		D71E9131273319E5008903FD /* MetricsLogger WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				D71E9132273319E5008903FD /* Assets.xcassets */,
 			);
-			path = "Code Along My Workout WatchKit App";
+			path = "MetricsLogger WatchKit App";
 			sourceTree = "<group>";
 		};
-		D71E913C273319E6008903FD /* Code Along My Workout WatchKit Extension */ = {
+		D71E913C273319E6008903FD /* MetricsLogger WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
 				D7789D9027416EB90049AED4 /* models */,
 				D7789D8F27416D020049AED4 /* controller */,
 				D7789D842740895E0049AED4 /* pages */,
-				D71E918727333F91008903FD /* Code Along My Workout WatchKit Extension.entitlements */,
-				D71E913D273319E6008903FD /* Code_Along_My_WorkoutApp.swift */,
+				D71E918727333F91008903FD /* MetricsLogger WatchKit Extension.entitlements */,
+				D71E913D273319E6008903FD /* MetricsLogger.swift */,
 				D71E917727331D2E008903FD /* SessionPagingView.swift */,
 				D71E917927331E31008903FD /* MetricsView.swift */,
 				D71E917D27332417008903FD /* ControlsView.swift */,
@@ -211,7 +211,7 @@
 				D71E9149273319E6008903FD /* Preview Content */,
 				D7789D91274173C90049AED4 /* SelectedMetricsView.swift */,
 			);
-			path = "Code Along My Workout WatchKit Extension";
+			path = "MetricsLogger WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		D71E9149273319E6008903FD /* Preview Content */ = {
@@ -222,21 +222,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D71E9155273319E6008903FD /* Code Along My WorkoutTests */ = {
+		D71E9155273319E6008903FD /* MetricsLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				D71E9156273319E6008903FD /* Code_Along_My_WorkoutTests.swift */,
+				D71E9156273319E6008903FD /* MetricsLoggerTests.swift */,
 			);
-			path = "Code Along My WorkoutTests";
+			path = MetricsLoggerTests;
 			sourceTree = "<group>";
 		};
-		D71E915F273319E6008903FD /* Code Along My WorkoutUITests */ = {
+		D71E915F273319E6008903FD /* MetricsLoggerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				D71E9160273319E6008903FD /* Code_Along_My_WorkoutUITests.swift */,
-				D71E9162273319E6008903FD /* Code_Along_My_WorkoutUITestsLaunchTests.swift */,
+				D71E9160273319E6008903FD /* MetricsLoggerUITests.swift */,
+				D71E9162273319E6008903FD /* MetricsLoggerUITestsLaunchTests.swift */,
 			);
-			path = "Code Along My WorkoutUITests";
+			path = MetricsLoggerUITests;
 			sourceTree = "<group>";
 		};
 		D71E918827333F91008903FD /* Frameworks */ = {
@@ -290,9 +290,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D71E9128273319E5008903FD /* Code Along My Workout */ = {
+		D71E9128273319E5008903FD /* MetricsLogger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D71E916E273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My Workout" */;
+			buildConfigurationList = D71E916E273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLogger" */;
 			buildPhases = (
 				D71E9127273319E5008903FD /* Resources */,
 				D71E916D273319E6008903FD /* Embed Watch Content */,
@@ -302,14 +302,14 @@
 			dependencies = (
 				D71E9130273319E5008903FD /* PBXTargetDependency */,
 			);
-			name = "Code Along My Workout";
+			name = MetricsLogger;
 			productName = "Code Along My Workout";
-			productReference = D71E9129273319E5008903FD /* Code Along My Workout.app */;
+			productReference = D71E9129273319E5008903FD /* MetricsLogger.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
-		D71E912C273319E5008903FD /* Code Along My Workout WatchKit App */ = {
+		D71E912C273319E5008903FD /* MetricsLogger WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D71E916A273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My Workout WatchKit App" */;
+			buildConfigurationList = D71E916A273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLogger WatchKit App" */;
 			buildPhases = (
 				D71E912B273319E5008903FD /* Resources */,
 				D71E9169273319E6008903FD /* Embed App Extensions */,
@@ -319,14 +319,14 @@
 			dependencies = (
 				D71E913B273319E6008903FD /* PBXTargetDependency */,
 			);
-			name = "Code Along My Workout WatchKit App";
+			name = "MetricsLogger WatchKit App";
 			productName = "Code Along My Workout WatchKit App";
-			productReference = D71E912D273319E5008903FD /* Code Along My Workout WatchKit App.app */;
+			productReference = D71E912D273319E5008903FD /* MetricsLogger WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		D71E9137273319E6008903FD /* Code Along My Workout WatchKit Extension */ = {
+		D71E9137273319E6008903FD /* MetricsLogger WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D71E9166273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My Workout WatchKit Extension" */;
+			buildConfigurationList = D71E9166273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLogger WatchKit Extension" */;
 			buildPhases = (
 				D71E9134273319E6008903FD /* Sources */,
 				D71E9135273319E6008903FD /* Frameworks */,
@@ -336,14 +336,14 @@
 			);
 			dependencies = (
 			);
-			name = "Code Along My Workout WatchKit Extension";
+			name = "MetricsLogger WatchKit Extension";
 			productName = "Code Along My Workout WatchKit Extension";
-			productReference = D71E9138273319E6008903FD /* Code Along My Workout WatchKit Extension.appex */;
+			productReference = D71E9138273319E6008903FD /* MetricsLogger WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
-		D71E9151273319E6008903FD /* Code Along My WorkoutTests */ = {
+		D71E9151273319E6008903FD /* MetricsLoggerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D71E9171273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My WorkoutTests" */;
+			buildConfigurationList = D71E9171273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLoggerTests" */;
 			buildPhases = (
 				D71E914E273319E6008903FD /* Sources */,
 				D71E914F273319E6008903FD /* Frameworks */,
@@ -354,14 +354,14 @@
 			dependencies = (
 				D71E9154273319E6008903FD /* PBXTargetDependency */,
 			);
-			name = "Code Along My WorkoutTests";
+			name = MetricsLoggerTests;
 			productName = "Code Along My WorkoutTests";
-			productReference = D71E9152273319E6008903FD /* Code Along My WorkoutTests.xctest */;
+			productReference = D71E9152273319E6008903FD /* MetricsLoggerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D71E915B273319E6008903FD /* Code Along My WorkoutUITests */ = {
+		D71E915B273319E6008903FD /* MetricsLoggerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D71E9174273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My WorkoutUITests" */;
+			buildConfigurationList = D71E9174273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLoggerUITests" */;
 			buildPhases = (
 				D71E9158273319E6008903FD /* Sources */,
 				D71E9159273319E6008903FD /* Frameworks */,
@@ -372,9 +372,9 @@
 			dependencies = (
 				D71E915E273319E6008903FD /* PBXTargetDependency */,
 			);
-			name = "Code Along My WorkoutUITests";
+			name = MetricsLoggerUITests;
 			productName = "Code Along My WorkoutUITests";
-			productReference = D71E915C273319E6008903FD /* Code Along My WorkoutUITests.xctest */;
+			productReference = D71E915C273319E6008903FD /* MetricsLoggerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +406,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D71E9126273319E5008903FD /* Build configuration list for PBXProject "Code Along My Workout" */;
+			buildConfigurationList = D71E9126273319E5008903FD /* Build configuration list for PBXProject "MetricsLogger" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -419,11 +419,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D71E9128273319E5008903FD /* Code Along My Workout */,
-				D71E912C273319E5008903FD /* Code Along My Workout WatchKit App */,
-				D71E9137273319E6008903FD /* Code Along My Workout WatchKit Extension */,
-				D71E9151273319E6008903FD /* Code Along My WorkoutTests */,
-				D71E915B273319E6008903FD /* Code Along My WorkoutUITests */,
+				D71E9128273319E5008903FD /* MetricsLogger */,
+				D71E912C273319E5008903FD /* MetricsLogger WatchKit App */,
+				D71E9137273319E6008903FD /* MetricsLogger WatchKit Extension */,
+				D71E9151273319E6008903FD /* MetricsLoggerTests */,
+				D71E915B273319E6008903FD /* MetricsLoggerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -485,7 +485,7 @@
 				D71E9146273319E6008903FD /* ComplicationController.swift in Sources */,
 				D76C6D3D273DC3E60083A4B8 /* InfluxInlineMetric.swift in Sources */,
 				D7789D8A27409C640049AED4 /* SelectHzView.swift in Sources */,
-				D71E913E273319E6008903FD /* Code_Along_My_WorkoutApp.swift in Sources */,
+				D71E913E273319E6008903FD /* MetricsLogger.swift in Sources */,
 				D73B7A822735C32200804048 /* WebSocketManager.swift in Sources */,
 				D7789D8E2740A8480049AED4 /* CollectorView.swift in Sources */,
 				D76C6D40273DE88F0083A4B8 /* MotionManager.swift in Sources */,
@@ -501,7 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D71E9157273319E6008903FD /* Code_Along_My_WorkoutTests.swift in Sources */,
+				D71E9157273319E6008903FD /* MetricsLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,8 +509,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D71E9161273319E6008903FD /* Code_Along_My_WorkoutUITests.swift in Sources */,
-				D71E9163273319E6008903FD /* Code_Along_My_WorkoutUITestsLaunchTests.swift in Sources */,
+				D71E9161273319E6008903FD /* MetricsLoggerUITests.swift in Sources */,
+				D71E9163273319E6008903FD /* MetricsLoggerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,22 +519,22 @@
 /* Begin PBXTargetDependency section */
 		D71E9130273319E5008903FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D71E912C273319E5008903FD /* Code Along My Workout WatchKit App */;
+			target = D71E912C273319E5008903FD /* MetricsLogger WatchKit App */;
 			targetProxy = D71E912F273319E5008903FD /* PBXContainerItemProxy */;
 		};
 		D71E913B273319E6008903FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D71E9137273319E6008903FD /* Code Along My Workout WatchKit Extension */;
+			target = D71E9137273319E6008903FD /* MetricsLogger WatchKit Extension */;
 			targetProxy = D71E913A273319E6008903FD /* PBXContainerItemProxy */;
 		};
 		D71E9154273319E6008903FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D71E9137273319E6008903FD /* Code Along My Workout WatchKit Extension */;
+			target = D71E9137273319E6008903FD /* MetricsLogger WatchKit Extension */;
 			targetProxy = D71E9153273319E6008903FD /* PBXContainerItemProxy */;
 		};
 		D71E915E273319E6008903FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D71E912C273319E5008903FD /* Code Along My Workout WatchKit App */;
+			target = D71E912C273319E5008903FD /* MetricsLogger WatchKit App */;
 			targetProxy = D71E915D273319E6008903FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -658,17 +658,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "Code Along My Workout WatchKit Extension/Code Along My Workout WatchKit Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "MetricsLogger WatchKit Extension/MetricsLogger WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Code Along My Workout WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MetricsLogger WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = QB9WNQGNDX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Code Along My Workout WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Code Along My Workout WatchKit Extension";
+				INFOPLIST_FILE = "MetricsLogger WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MetricsLogger WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Code_Along_My_Workout_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Needs this data to work properly";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Needs to update health data to work properly";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "This App will track your motion for furhter analysis";
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "accelerometer gyroscope";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,7 +680,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.juvidreams.Code-Along-My-Workout.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = de.juvidreams.MetricsLogger.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -691,17 +695,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "Code Along My Workout WatchKit Extension/Code Along My Workout WatchKit Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "MetricsLogger WatchKit Extension/MetricsLogger WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Code Along My Workout WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MetricsLogger WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = QB9WNQGNDX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Code Along My Workout WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Code Along My Workout WatchKit Extension";
+				INFOPLIST_FILE = "MetricsLogger WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MetricsLogger WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Code_Along_My_Workout_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Needs this data to work properly";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Needs to update health data to work properly";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "This App will track your motion for furhter analysis";
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "accelerometer gyroscope";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -709,7 +717,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.juvidreams.Code-Along-My-Workout.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = de.juvidreams.MetricsLogger.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -731,11 +739,10 @@
 				DEVELOPMENT_TEAM = QB9WNQGNDX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Code_Along_My_Workout_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "Code Along My Workout WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.juvidreams.Code-Along-My-Workout.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = de.juvidreams.MetricsLogger.watchkitapp;
+				PRODUCT_NAME = "MetricsLogger WatchKit App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -756,11 +763,10 @@
 				DEVELOPMENT_TEAM = QB9WNQGNDX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Code_Along_My_Workout_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "Code Along My Workout WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.juvidreams.Code-Along-My-Workout.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = de.juvidreams.MetricsLogger.watchkitapp;
+				PRODUCT_NAME = "MetricsLogger WatchKit App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -777,8 +783,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QB9WNQGNDX;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.juvidreams.Code-Along-My-Workout";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = de.juvidreams.MetricsLogger;
+				PRODUCT_NAME = MetricsLogger;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -790,8 +796,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QB9WNQGNDX;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.juvidreams.Code-Along-My-Workout";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = de.juvidreams.MetricsLogger;
+				PRODUCT_NAME = MetricsLogger;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -817,7 +823,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Code Along My Workout WatchKit Extension.appex/Code Along My Workout WatchKit Extension";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetricsLogger WatchKit Extension.appex/MetricsLogger WatchKit Extension";
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
@@ -843,7 +849,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Code Along My Workout WatchKit Extension.appex/Code Along My Workout WatchKit Extension";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetricsLogger WatchKit Extension.appex/MetricsLogger WatchKit Extension";
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
@@ -899,7 +905,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D71E9126273319E5008903FD /* Build configuration list for PBXProject "Code Along My Workout" */ = {
+		D71E9126273319E5008903FD /* Build configuration list for PBXProject "MetricsLogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D71E9164273319E6008903FD /* Debug */,
@@ -908,7 +914,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D71E9166273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My Workout WatchKit Extension" */ = {
+		D71E9166273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLogger WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D71E9167273319E6008903FD /* Debug */,
@@ -917,7 +923,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D71E916A273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My Workout WatchKit App" */ = {
+		D71E916A273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLogger WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D71E916B273319E6008903FD /* Debug */,
@@ -926,7 +932,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D71E916E273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My Workout" */ = {
+		D71E916E273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D71E916F273319E6008903FD /* Debug */,
@@ -935,7 +941,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D71E9171273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My WorkoutTests" */ = {
+		D71E9171273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLoggerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D71E9172273319E6008903FD /* Debug */,
@@ -944,7 +950,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D71E9174273319E6008903FD /* Build configuration list for PBXNativeTarget "Code Along My WorkoutUITests" */ = {
+		D71E9174273319E6008903FD /* Build configuration list for PBXNativeTarget "MetricsLoggerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D71E9175273319E6008903FD /* Debug */,

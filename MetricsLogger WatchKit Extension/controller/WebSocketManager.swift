@@ -8,8 +8,8 @@
 import Foundation
 
 class WebSocketManager: NSObject, ObservableObject, URLSessionWebSocketDelegate {
-//    let url: String = "ws://192.168.178.96:3210/watch"
-    let url: String = "ws://169.254.97.193/watch"
+    let url: String = "ws://192.168.178.96:3210/watch"
+//    let url: String = "ws://169.254.97.193/watch"
     
     @Published var isConnected: Bool = false
     @Published var count: Int = 0
