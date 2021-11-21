@@ -36,7 +36,13 @@ class MotionManager {
             motion.startAccelerometerUpdates()
             handlerFunctions.append(self.handleAccelerationData)
         }
-        
+
+//        if setupController.metrics.magenticField{
+//            motion.magnetometerUpdateInterval = interval
+//            motion.startMagnetometerUpdates()
+//            handlerFunctions.append(self.handleMagneticField)
+//        }
+//
         
         
         if motion.isDeviceMotionAvailable {
@@ -50,7 +56,7 @@ class MotionManager {
             if setupController.metrics.magenticField {
                 handlerFunctions.append(self.handleMagneticField)
             }
-            
+
             if setupController.metrics.acceleration {
                 handlerFunctions.append(self.handleDeviceMotionAcceleration)
             }
@@ -89,8 +95,8 @@ class MotionManager {
                 .addField("y", "\(data.acceleration.y)")
                 .addField("z", "\(data.acceleration.z)")
                 .build()
-            
-            self.webSocketManager.sendMessage(msg: iimAccData)
+              print(iimAccData)
+//            self.webSocketManager.sendMessage(msg: iimAccData)
         }
     }
     
@@ -131,9 +137,9 @@ class MotionManager {
                 .addField("32", "\(data.rotationMatrix.m32)")
                 .addField("33", "\(data.rotationMatrix.m33)")
                 .build()
-            webSocketManager.sendMessage(msg: iimAttitude)
-            webSocketManager.sendMessage(msg: iimQuaternion)
-            webSocketManager.sendMessage(msg: iimRotationMatrix)
+//            webSocketManager.sendMessage(msg: iimAttitude)
+//            webSocketManager.sendMessage(msg: iimQuaternion)
+//            webSocketManager.sendMessage(msg: iimRotationMatrix)
         }
     }
     
@@ -147,7 +153,8 @@ class MotionManager {
                 .addField("y", "\(data.y)")
                 .addField("z", "\(data.z)")
                 .build()
-            webSocketManager.sendMessage(msg: iimRotationRate)
+            print(iimRotationRate)
+//            webSocketManager.sendMessage(msg: iimRotationRate)
         }
     }
     
@@ -161,7 +168,8 @@ class MotionManager {
                 .addField("y", "\(data.y)")
                 .addField("z", "\(data.z)")
                 .build()
-            webSocketManager.sendMessage(msg: iimGravity)
+            print(iimGravity)
+//            webSocketManager.sendMessage(msg: iimGravity)
         }
     }
     
@@ -176,13 +184,24 @@ class MotionManager {
                 .addField("y", "\(data.userAcceleration.y)")
                 .addField("z", "\(data.userAcceleration.z)")
                 .build()
-            
-            self.webSocketManager.sendMessage(msg: iimAccData)
+            print(iimAccData)
+//            self.webSocketManager.sendMessage(msg: iimAccData)
         }
     }
     
     // MARK: Handle Magnetic Field
     func handleMagneticField() {
+//        if let data = self.motion.magnetometerData {
+//            let iimMagenticField = InfluxInlineMetricBuilder()
+//                .withMeasurement("magnetic_field")
+//                .addTag("unbiased", "true")
+//                .addField("x", "\(data.magneticField.x)")
+//                .addField("y", "\(data.magneticField.y)")
+//                .addField("z", "\(data.magneticField.z)")
+//                .build()
+//            print(iimMagenticField)
+////            webSocketManager.sendMessage(msg: iimMagenticField)
+//        }
         if let data = self.motion.deviceMotion?.magneticField {
             let iimMagenticField = baseMetricBuilder
                 .withMeasurement("magnetic_field")
@@ -192,7 +211,8 @@ class MotionManager {
                 .addField("y", "\(data.field.y)")
                 .addField("z", "\(data.field.z)")
                 .build()
-            webSocketManager.sendMessage(msg: iimMagenticField)
+            print(iimMagenticField.getFieldsString())
+//            webSocketManager.sendMessage(msg: iimMagenticField)
         }
     }
     
@@ -204,7 +224,7 @@ class MotionManager {
                 .addTag("unbiased", "true")
                 .addField("degree", "\(data)")
                 .build()
-            webSocketManager.sendMessage(msg: iimHeading)
+//            webSocketManager.sendMessage(msg: iimHeading)
         }
     }
     
@@ -219,7 +239,7 @@ class MotionManager {
                 .addField("y", "\(data.rotationRate.y)")
                 .addField("z", "\(data.rotationRate.z)")
                 .build()
-            webSocketManager.sendMessage(msg: iimAcceleration)
+//            webSocketManager.sendMessage(msg: iimAcceleration)
         }
     }
     
